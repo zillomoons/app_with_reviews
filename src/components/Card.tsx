@@ -12,8 +12,7 @@ type Props = {
 
 export class Card extends React.Component<Props> {
   render(): React.ReactNode {
-    const { item } = this.props;
-    const { name, review, date } = item;
+    const { name, review, date } = this.props.item;
     const [secondName, firstName] = name.split(' ');
     const editedName = secondName + (firstName ? ` ${firstName[0]}.` : '');
     return (
@@ -21,10 +20,8 @@ export class Card extends React.Component<Props> {
         <figcaption>
           <h4>{editedName}</h4>
         </figcaption>
-        <blockquote>
-          <p>"{review}"</p>
-        </blockquote>
-        <p className='date'>{date} </p>
+        <blockquote>"{review}"</blockquote>
+        <small className='date'>{date}</small>
       </div>
     );
   }

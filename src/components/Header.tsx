@@ -16,7 +16,7 @@ type Props = {
 
 export class Header extends React.Component<Props> {
   state = {
-    showDropDown: true,
+    showDropDown: false,
   };
   toggleDropDown() {
     this.setState({
@@ -30,7 +30,7 @@ export class Header extends React.Component<Props> {
       <header>
         <img
           src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROj8Ls_fG5zLEYD6nDpJpo4Zsg25KLeBaPrQ&usqp=CAU'
-          alt=''
+          alt='grogu'
         />
         <Watch />
         <DropDown

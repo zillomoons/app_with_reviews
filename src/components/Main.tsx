@@ -1,7 +1,7 @@
 import React from 'react';
 import data from '../data/data.json';
-import { Card, Review } from './Card';
 import Pagination from './Pagination';
+import Cards from './Cards';
 
 type lngProp = 'en' | 'ru';
 
@@ -23,7 +23,7 @@ export class Main extends React.PureComponent<Props> {
       });
     }
   }
-  onPageChange(page: number) {
+  onPageChange(page: number | string) {
     this.setState({
       currentPage: page,
     });
@@ -37,11 +37,7 @@ export class Main extends React.PureComponent<Props> {
     return (
       <main className='container'>
         <h1>{title}</h1>
-        <div className='cards'>
-          {reviews.map((el: Review, i) => (
-            <Card item={el} key={i} />
-          ))}
-        </div>
+        <Cards reviews={reviews} />
         <Pagination
           currentPage={this.state.currentPage}
           total={this.state.reviews.length}
