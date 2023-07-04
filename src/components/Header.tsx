@@ -1,8 +1,11 @@
 import React from 'react';
 import { Watch } from './Watch';
 import { i18n } from 'i18next';
+import { DropDown } from './DropDown';
 
-const lngs: { [key: string]: { nativeName: string } } = {
+export type LangProps = { [key: string]: { nativeName: string } };
+
+const lngs: LangProps = {
   en: { nativeName: 'English' },
   ru: { nativeName: 'Русский' },
 };
@@ -12,6 +15,15 @@ type Props = {
 };
 
 export class Header extends React.Component<Props> {
+  state = {
+    showDropDown: true,
+  };
+  toggleDropDown() {
+    this.setState({
+      showDropDown: !this.state.showDropDown,
+    });
+  }
+
   render(): React.ReactNode {
     const { i18n } = this.props;
     return (
@@ -21,17 +33,12 @@ export class Header extends React.Component<Props> {
           alt=''
         />
         <Watch />
-        <div>
-          {Object.keys(lngs).map((lng) => (
-            <button
-              key={lng}
-              onClick={() => i18n.changeLanguage(lng)}
-              disabled={i18n.resolvedLanguage === lng}
-            >
-              {lngs[lng].nativeName}
-            </button>
-          ))}
-        </div>
+        <DropDown
+          langOptions={lngs}
+          i18n={i18n}
+          showDropDown={this.state.showDropDown}
+          toggleDropDown={this.toggleDropDown.bind(this)}
+        />
       </header>
     );
   }

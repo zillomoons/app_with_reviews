@@ -18,9 +18,13 @@ export class Card extends React.Component<Props> {
     const editedName = secondName + (firstName ? ` ${firstName[0]}.` : '');
     return (
       <div className='card'>
-        <h3>{editedName}</h3>
-        <p>{review}</p>
-        <p> {date} </p>
+        <figcaption>
+          <h4>{editedName}</h4>
+        </figcaption>
+        <blockquote>
+          <p>"{review}"</p>
+        </blockquote>
+        <p className='date'>{date} </p>
       </div>
     );
   }
