@@ -1,12 +1,26 @@
 import React from 'react';
 
-export class Card extends React.Component {
+export type Review = {
+  name: string;
+  review: string;
+  date: string;
+};
+
+type Props = {
+  item: Review;
+};
+
+export class Card extends React.Component<Props> {
   render(): React.ReactNode {
+    const { item } = this.props;
+    const { name, review, date } = item;
+    const [secondName, firstName] = name.split(' ');
+    const editedName = secondName + (firstName ? ` ${firstName[0]}.` : '');
     return (
-      <div>
-        <h3>Ivanov I.</h3>
-        <p></p>
-        <p>22.06.2021</p>
+      <div className='card'>
+        <h3>{editedName}</h3>
+        <p>{review}</p>
+        <p> {date} </p>
       </div>
     );
   }

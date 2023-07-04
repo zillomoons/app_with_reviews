@@ -13,11 +13,11 @@ interface IState {
 class App extends React.Component<IProps, IState> {
   render(): ReactNode {
     const { t, i18n } = this.props;
+    const currentLang = i18n.language;
     return (
       <>
         <Header i18n={i18n} />
-        <Main title={t('reviews')} i18n={i18n} />
-        {i18n.language}
+        <Main title={t('reviews')} currentLang={currentLang} />
       </>
     );
   }

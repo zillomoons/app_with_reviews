@@ -37,7 +37,7 @@ h1 {
 }
 
 .container {
-  max-width: 900px;
+  max-width: 80%;
   padding-left: 2rem;
   padding-right: 2rem;
   margin: 0 auto;
@@ -63,42 +63,29 @@ main a:hover {
   cursor: default;
 }
 
-form {
-  display: flex;
-  justify-content: center;
-}
-
-form button,
-button {
-  background-color: var(--color-active);
-  cursor: pointer;
-  color: white;
-  border: none;
-}
-
-input[type="search"] {
-  padding: 0.5rem 1rem;
-}
-
-button {
-  padding: 0.5rem 1rem;
-}
-
-.stack {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.login-form {
-  display: grid;
-  gap: 1rem;
-}
-
 .flag-icon{
   width: 14px;
   height: 14px;
   border-radius: 50%;
   margin-right: 8px;
+}
+
+.cards{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.card{
+  width: 300px;
+}
+
+.pagination{
+  display: flex;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.pagination li{
+  list-style: none;
 }
